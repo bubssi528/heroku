@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}
+test
+{% endblock %}
+{% block body %}
+<div class="container">
+    <h1> 자세한 내용입니다</h1>
+    <br>
+    <p>{{blogs.title}}</p>
+    <p>{{blogs.pub_date}}</p>
+     <p>{{blogs.body|linebreaksbr}}</p>
+</div>
+
+</body>
+</html>
+{% endblock %}
+

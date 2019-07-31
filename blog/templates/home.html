@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block title %}
+test
+{% endblock %}
+{% block body %}
+<div class="container" style="background-color: #f5f5f6" >
+    {% for blog in post %}
+    <br>
+    <div class="card">
+        <h5 class="card-header" style="background-color:#ffffff">{{blog.id}}번째 글</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{blog.title}}</h5>
+          <p class="card-text">{{blog.body|truncatewords:30}}</p>
+          <a href={% url 'detail' blog.id %} class="btn", style="background-color:white; color:black; border-width:2px; border-color:#47C83E">자세히 보기</a>
+        </div>
+      </div>
+    {% endfor %}   
+
+    <br>
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+            {%if post.has_previous%}
+              <li class="page-item">
+                <a class="page-link" href="?page={{post.previous_page_number}}" tabindex="-1" aria-disabled="true">Previous</a>
+              </li>
+            {%endif%}
+            <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+            <li class="page-item" aria-current="page">
+              <a class="page-link" href="?page=2">2 </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
+          {%if post.has_next%}
+          <li class="page-item">
+            <a class="page-link" href="?page={{post.next_page_number}}">Next</a>
+          </li>
+          {%endif%}
+        </ul>
+      </nav>
+  </div>
+</body>
+</html>
+{% endblock %}
+
