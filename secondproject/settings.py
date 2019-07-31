@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
-        #allauth
+    #allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
